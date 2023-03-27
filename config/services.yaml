@@ -13,12 +13,19 @@ services:
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
-    App\:
-        resource: '../src/'
+    Blog\:
+        resource: '../src/Blog'
         exclude:
-            - '../src/DependencyInjection/'
-            - '../src/Entity/'
-            - '../src/Kernel.php'
+            - '../src/Blog/Domain/Model/'
+            - '../src/Blog/Infrastructure/Symfony/Kernel.php'
+
+    Blog\Infrastructure\Symfony\Controller\:
+        resource: '../src/Blog/Infrastructure/Symfony/Controller/'
+        tags: ['controller.service_arguments']
+
+    Blog\Infrastructure\DataFixtures\:
+        resource: '../src/Blog/Infrastructure/DataFixtures'
+        tags: ['doctrine.fixture.orm']
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

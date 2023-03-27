@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+<entity name="Blog\Domain\Model\Comment" repository-class="Blog\Infrastructure\Persistence\Doctrine\Repository\CommentRepositoryInterface" table="comment">
+        <id name="id" column="id" type="comment_id"/>
+        <field name="content" column="content" type="text" length="255"  nullable="false" />
+        <field name="createdAt" column="createdAt" type="datetime" nullable="false" />
+        <field name="author" column="author" type="email" />
+        <many-to-one field="article" target-entity="Blog\Domain\Model\Article" inversed-by="comments">
+            <join-columns>
+                <join-column name="article_id" nullable="false"/>
+            </join-columns>
+        </many-to-one>
+    </entity>
+</doctrine-mapping>
