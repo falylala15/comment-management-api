@@ -4,8 +4,8 @@ namespace Blog\Application\Query;
 
 use Blog\Domain\Contracts\CommentRepositoryInterface;
 use Blog\Domain\Model\Comment;
-use Blog\Domain\DTO\Comment as CommentDTO;
 use Blog\Domain\ValueObject\ArticleId;
+use Blog\Application\DTO\Comment as CommentDTO;
 
 class CommentQuery
 {

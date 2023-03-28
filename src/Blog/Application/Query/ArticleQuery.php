@@ -3,9 +3,9 @@
 namespace Blog\Application\Query;
 
 use Blog\Domain\Contracts\ArticleRepositoryInterface;
-use Blog\Domain\DTO\Article as ArticleDTO;
 use Blog\Domain\Model\Article;
 use Blog\Domain\ValueObject\ArticleId;
+use Blog\Application\DTO\Article as ArticleDTO;
 
 class ArticleQuery
 {

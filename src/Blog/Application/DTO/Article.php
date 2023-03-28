@@ -1,6 +1,6 @@
 <?php
 
-namespace Blog\Domain\DTO;
+namespace Blog\Application\DTO;
 
 use Blog\Domain\Model\Article as ArticleEntity;
 

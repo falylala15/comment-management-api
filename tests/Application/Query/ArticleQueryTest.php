@@ -2,9 +2,9 @@
 
 namespace Blog\Application\Query;
 
-use Blog\Domain\DTO\Article;
 use Blog\Domain\Factory\ArticleFactory;
 use Blog\Domain\ValueObject\ArticleId;
+use Blog\Application\DTO\Article;
 use Tests\BaseTest;
 use Tests\Infrastructure\Doctrine\Persistence\Doubles\InMemoryArticleRepository;
 

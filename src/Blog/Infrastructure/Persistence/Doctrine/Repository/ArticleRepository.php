@@ -3,7 +3,6 @@
 namespace Blog\Infrastructure\Persistence\Doctrine\Repository;
 
 use Blog\Domain\Contracts\ArticleRepositoryInterface;
-use Blog\Domain\DTO\Article;
 use Blog\Domain\Factory\ArticleFactory;
 use Blog\Domain\Model\Article as ArticleEntity;
 use Blog\Domain\ValueObject\ArticleId;
