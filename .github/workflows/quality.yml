@@ -1,0 +1,33 @@
+name: Quality
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest --no-interaction --no-scripts
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyze tests src --level=7
+
+      - name: Run PHP-CS-Fixer
+        run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --diff --dry-run -v
+
+      - name: Run PHPUnit
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Upload code coverage
+        uses: codecov/codecov-action@v2
+        with:
+          file: coverage.xml
+          flags: unittests
